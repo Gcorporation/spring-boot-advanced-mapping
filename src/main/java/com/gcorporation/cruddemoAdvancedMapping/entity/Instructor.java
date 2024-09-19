@@ -40,11 +40,10 @@ public class Instructor {
 
     }
 
-    public Instructor(String lastName, String firstName, String email, InstructorDetail instructorDetail) {
-        this.lastName = lastName;
+    public Instructor(String firstName, String lastName, String email) {
         this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
-        this.instructorDetail = instructorDetail;
     }
 
     public int getId() {
