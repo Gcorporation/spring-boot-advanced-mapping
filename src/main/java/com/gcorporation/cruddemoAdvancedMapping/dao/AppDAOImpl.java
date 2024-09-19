@@ -1,6 +1,7 @@
 package com.gcorporation.cruddemoAdvancedMapping.dao;
 
 import com.gcorporation.cruddemoAdvancedMapping.entity.Instructor;
+import com.gcorporation.cruddemoAdvancedMapping.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -38,5 +39,10 @@ public class AppDAOImpl implements AppDAO {
 
         // delete the instructor
         entityManager.remove(tempInstructor);
+    }
+
+    @Override
+    public InstructorDetail findInstructorDetialById(int theId) {
+        return entityManager.find(InstructorDetail.class, theId);
     }
 }

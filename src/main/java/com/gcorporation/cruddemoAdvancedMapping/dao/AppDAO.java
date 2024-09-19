@@ -1,6 +1,7 @@
 package com.gcorporation.cruddemoAdvancedMapping.dao;
 
 import com.gcorporation.cruddemoAdvancedMapping.entity.Instructor;
+import com.gcorporation.cruddemoAdvancedMapping.entity.InstructorDetail;
 
 public interface AppDAO {
 
@@ -9,4 +10,6 @@ public interface AppDAO {
     Instructor findinstructorById(int theId);
 
     void deleteInstructorById(int theId);
+
+    InstructorDetail findInstructorDetialById(int theId);
 }
