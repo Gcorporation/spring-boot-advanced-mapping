@@ -1,6 +1,7 @@
 package com.gcorporation.cruddemoAdvancedMapping;
 
 import com.gcorporation.cruddemoAdvancedMapping.dao.AppDAO;
+import com.gcorporation.cruddemoAdvancedMapping.entity.Course;
 import com.gcorporation.cruddemoAdvancedMapping.entity.Instructor;
 import com.gcorporation.cruddemoAdvancedMapping.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -25,8 +26,47 @@ public class CruddemoAdvancedMappingApplication {
 			//findInstructor(appDAO);
 			//deleteInstructor(appDAO);
 			//findInstructorDetail(appDAO);
-			deleteInstructorDetail(appDAO);
+			//deleteInstructorDetail(appDAO);
+			createInstructorWithCourses(appDAO);
 		};
+	}
+
+	private void createInstructorWithCourses(AppDAO appDAO) {
+		// create the instructor
+		Instructor tempInstructor = new Instructor("Prabhjot", "Singh", "prabhjotsingh394.com");
+
+
+		// create the instructor detail
+
+		InstructorDetail tempInstructorDetail =
+				new InstructorDetail("Love anime",
+						"http://youtube.com");
+
+		// associate the objects
+
+		tempInstructor.setInstructorDetail(tempInstructorDetail);
+
+		// create some courses
+
+		Course tempCourse1 = new Course("Air Guitar - The Ultimate Guide");
+		Course tempCourse2 = new Course("The Pinball Masterclass");
+
+		// add courses to instructor
+
+		tempInstructor.add(tempCourse1);
+		tempInstructor.add(tempCourse2);
+
+		// save the instructor
+
+		// NOTE: this will ALSO save the courses
+		// because of CascadeType.PERSIST
+
+		System.out.println("Saving instructor: " + tempInstructor);
+		System.out.println("The courses: " + tempInstructor.getCourses());
+		appDAO.save(tempInstructor);
+
+		System.out.println("Done!");
+
 	}
 
 	private void deleteInstructorDetail(AppDAO appDAO) {
