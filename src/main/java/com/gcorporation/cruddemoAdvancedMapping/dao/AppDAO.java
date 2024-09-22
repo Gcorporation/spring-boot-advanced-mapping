@@ -1,7 +1,10 @@
 package com.gcorporation.cruddemoAdvancedMapping.dao;
 
+import com.gcorporation.cruddemoAdvancedMapping.entity.Course;
 import com.gcorporation.cruddemoAdvancedMapping.entity.Instructor;
 import com.gcorporation.cruddemoAdvancedMapping.entity.InstructorDetail;
+
+import java.util.List;
 
 public interface AppDAO {
 
@@ -14,4 +17,6 @@ public interface AppDAO {
     InstructorDetail findInstructorDetialById(int theId);
 
     void deleteInstructorDetailById(int theId);
+
+    List<Course> findCoursesByInstructorId(int theId);
 }
