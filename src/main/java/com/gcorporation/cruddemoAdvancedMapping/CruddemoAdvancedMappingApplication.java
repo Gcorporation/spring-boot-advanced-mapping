@@ -4,6 +4,7 @@ import com.gcorporation.cruddemoAdvancedMapping.dao.AppDAO;
 import com.gcorporation.cruddemoAdvancedMapping.entity.Course;
 import com.gcorporation.cruddemoAdvancedMapping.entity.Instructor;
 import com.gcorporation.cruddemoAdvancedMapping.entity.InstructorDetail;
+import com.gcorporation.cruddemoAdvancedMapping.entity.Review;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -36,7 +37,27 @@ public class CruddemoAdvancedMappingApplication {
 			//updateCourse(appDAO);
 			//deleteInstructor(appDAO);
 			//deleteCourse(appDAO);
+			createCourseAndReviews(appDAO);
 		};
+	}
+
+	private void createCourseAndReviews(AppDAO appDAO) {
+
+		// create a course
+		Course tempCourse = new Course("Pacman - How to score One million Points");
+
+		// add some reviews
+		tempCourse.addReview(new Review("Great Course ... loved it"));
+		tempCourse.addReview(new Review("Cool course, job well done"));
+		tempCourse.addReview(new Review("What a dumb course, you are an idiot"));
+
+		// save the course
+		System.out.println("Saving the course");
+		System.out.println(tempCourse);
+		System.out.println(tempCourse.getReviews());
+
+		appDAO.save(tempCourse);
+		System.out.println("Done!");
 	}
 
 	private void deleteCourse(AppDAO appDAO) {
