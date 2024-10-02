@@ -35,7 +35,7 @@ public class CruddemoAdvancedMappingApplication {
 			//updateInstructor(appDAO);
 			//updateCourse(appDAO);
 			//deleteInstructor(appDAO);
-			deleteCourse(appDAO);
+			//deleteCourse(appDAO);
 		};
 	}
 
